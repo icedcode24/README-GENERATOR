@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../.Trash/node_modules"
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
+}
