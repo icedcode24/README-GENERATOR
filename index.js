@@ -8,7 +8,6 @@ const outputREADME = (readMe) => {
         console.log('Success');
     })
 };
-// TODO: Create an array of questions for user input
 const questions = [
     {
         type: 'input',
@@ -23,14 +22,38 @@ const questions = [
             }
         }
     },
-    type: 'input',
-    message: 'What is the title of your project?',
-    name: 'title',
-    validate: your_title => {
-        if (your_title) {
+    {type: 'input',
+    message: 'What is the installation process for your project?',
+    name: 'installation',
+    validate: your_installation => {
+        if (your_installation) {
             return true;
         } else {
-            console.log('Provide a title for your project');
+            console.log('Provide a installation process for your project');
+            return false;
+        }
+    }
+    },
+    {type: 'input',
+    message: 'What is the usage for your project?',
+    name: 'usage',
+    validate: your_usage => {
+        if (your_usage) {
+            return true;
+        } else {
+            console.log('Provide the usage of your project');
+            return false;
+        }
+    }
+    },
+    {type: 'input',
+    message: 'What is the contributions for your project?',
+    name: 'contributing',
+    validate: your_usage => {
+        if (your_usage) {
+            return true;
+        } else {
+            console.log('Provide the contributions for your project');
             return false;
         }
     }
