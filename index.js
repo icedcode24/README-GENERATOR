@@ -22,6 +22,19 @@ const questions = [
             }
         }
     },
+    {
+        type: 'input',
+        message: 'How do you test your project?',
+        name: 'test',
+        validate: your_test => {
+            if (your_test) {
+                return true;
+            } else {
+                console.log('Provide a test for your project');
+                return false;
+            }
+        }
+    },
     {type: 'input',
     message: 'What is the installation process for your project?',
     name: 'installation',
@@ -35,7 +48,7 @@ const questions = [
     }
     },
     {type: 'input',
-    message: 'What is the usage for your project?',
+    message: 'How is your project used?',
     name: 'usage',
     validate: your_usage => {
         if (your_usage) {
@@ -102,7 +115,33 @@ const questions = [
                             return false;
                         }
                     }
-}
+},
+{
+    type: 'input',
+    message: 'What is your Github username?',
+    name: 'github',
+    validate: your_github => {
+        if (your_github) {
+            return true;
+        } else {
+            console.log('Provide your github username');
+            return false;
+        }
+    }
+},
+{
+    type: 'input',
+    message: 'What is your email address?',
+    name: 'email',
+    validate: your_email => {
+        if (your_email) {
+            return true;
+        } else {
+            console.log('Provide your email address');
+            return false;
+        }
+    }
+},
 ];
 
 
