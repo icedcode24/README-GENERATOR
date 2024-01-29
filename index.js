@@ -3,7 +3,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 // for output readme file
 const outputREADME = (readMe) => {
-    fs.writeFile('README2.md', readMe, (err) => {
+    fs.writeFile('OUTPUT_README.md', readMe, (err) => {
         if (err) console.log(err);
         console.log('Success');
     })
@@ -20,7 +20,7 @@ const renderDescription =(description) => {
 };
 
 const renderTableofcontents =() => {
-    return `##Table of Contents
+    return `## Table of Contents
     [Instructions](#instructions)
 
     [Usage](#usage)
@@ -74,6 +74,7 @@ const renderBaseTemplate = (
     decriptionTemplate,
     TableofcontentsTemplate,
     installationtemplate,
+    instructionsTemplate,
     usageTemplate,
     contributingTemplate,
     testTemplate,
@@ -81,14 +82,24 @@ const renderBaseTemplate = (
     gitHubTemplate,
 ) => {
     return `${titleTemplate}
-    ${descriptionTemplate}
-    ${TableofcontentsTemplate}
-    ${installationTemplate}
-    ${instructionsTemplate}
-    ${usageTemplate}
-    ${contributingTemplate}
-    ${testTemplate}
-    ${gitHubTemplate}`
+
+${decriptionTemplate}
+
+${TableofcontentsTemplate}
+
+${installationtemplate}
+
+${instructionsTemplate}
+
+${usageTemplate}
+
+${contributingTemplate}
+
+${testTemplate}
+
+${licenseTemplate}
+
+${gitHubTemplate}`
 };
 var questions = [{
         type: 'input',
@@ -227,9 +238,8 @@ var questions = [{
         }
     },
 ];
-inquirer.prompt(questions)
-.then(({title, description, installation, instructions, usage,contributing,test, license, gitHub}) =>{
-    
+function init() {
+inquirer.prompt(questions).then(({title, description, installation, instructions, usage,contributing,test, license, gitHub}) =>{
     const titleTemplate = renderTitle(title, license);
     const descriptionTemplate = renderDescription(description);
     const TableofcontentsTemplate = renderTableofcontents();
@@ -255,6 +265,7 @@ inquirer.prompt(questions)
     outputREADME(baseTemplate);
 
 })
-
+}
+init();
 
 
